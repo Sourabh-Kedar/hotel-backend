@@ -9,6 +9,7 @@ const app = express();
 const PORT = 2000;
 import authRoutes from "./routes/auth.js";
 import roomRoutes from "./routes/rooms.js";
+import adminRoutes from './routes/admin.js'
 app.use(cors());
 app.use(express.json());
 
@@ -22,5 +23,6 @@ mongoose
 app.get("/", (req, res) => res.send("Home Page"));
 app.use("/api/auth", authRoutes);
 app.use("/api/room", roomRoutes);
+app.use("/api/admin" , adminRoutes)
 
 app.listen(PORT, console.log(`Server is Running at PORT ${PORT}`));
